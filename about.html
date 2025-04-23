@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | SOCIAL ORBIT - Elite Social Media Marketing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FFD700;
+            --secondary: #7858FF;
+            --dark: #0A0A0A;
+            --darker: #050505;
+            --accent: #C0A46E;
+            --text-light: rgba(255,255,255,0.85);
+            --text-lighter: rgba(255,255,255,0.95);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--darker);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        /* Navbar (same as previous) */
+        .navbar {
+            position: fixed;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(5, 5, 5, 0.98);
+            backdrop-filter: blur(15px) saturate(180%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            background: linear-gradient(45deg, var(--primary), #FFF3B0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            padding-left: 2.5rem;
+        }
+
+        .logo::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.8rem;
+            color: var(--primary);
+            animation: starPulse 2s infinite;
+        }
+
+        @keyframes starPulse {
+            0%, 100% { opacity: 1; transform: scale(1) translateY(-50%); }
+            50% { opacity: 0.4; transform: scale(1.2) translateY(-50%); }
+        }
+
+        .nav-links a {
+            margin-left: 3rem;
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary), transparent);
+            transition: width 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* About Hero Section */
+        .about-hero {
+            height: 70vh;
+            padding: 0 10%;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(25deg, var(--darker) 30%, #111 100%);
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            width: 150vw;
+            height: 150vh;
+            background: radial-gradient(circle, rgba(255,215,0,0.05) 0%, transparent 60%);
+            animation: galaxySpin 120s linear infinite;
+            opacity: 0.2;
+        }
+
+        @keyframes galaxySpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            color: var(--text-lighter);
+            text-shadow: 0 0 30px rgba(255,215,0,0.1);
+        }
+
+        .gold-divider {
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+            margin: 2rem 0;
+            opacity: 0.7;
+        }
+
+        /* Mission Section */
+        .mission-section {
+            padding: 8rem 10%;
+            position: relative;
+            background: var(--dark);
+        }
+
+        .mission-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%23FFD700" stroke-width="0.5" opacity="0.05"/></svg>');
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .mission-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mission-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--text-lighter);
+            margin-bottom: 2rem;
+        }
+
+        .mission-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .mission-image {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: transform 0.5s ease;
+        }
+
+        .mission-image:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .mission-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid rgba(255,215,0,0.2);
+        }
+
+        .mission-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,215,0,0.1), transparent);
+            z-index: 1;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 8rem 10%;
+            background: linear-gradient(to bottom, var(--dark), var(--darker));
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--text-lighter);
+            margin-bottom: 1.5rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .value-card {
+            background: linear-gradient(145deg, rgba(15,15,15,0.8), rgba(10,10,10,0.9));
+            padding: 3rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255,215,0,0.15);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,215,0,0.05),
+                transparent
+            );
+            transition: all 0.6s;
+        }
+
+        .value-card:hover::before {
+            left: 100%;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border-color: rgba(255,215,0,0.3);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .value-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-lighter);
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 8rem 10%;
+            background: var(--darker);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-member {
+            text-align: center;
+            position: relative;
+        }
+
+        .member-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            overflow: hidden;
+            border: 3px solid rgba(255,215,0,0.3);
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.4s ease;
+        }
+
+        .member-image:hover {
+            transform: scale(1.05);
+            border-color: var(--primary);
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,215,0,0.1), transparent);
+        }
+
+        .team-member h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-lighter);
+        }
+
+        .team-member p {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .mission-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .mission-image {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero {
+                height: auto;
+                padding: 10rem 5% 5rem;
+            }
+            
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .mission-section, .values-section, .team-section {
+                padding: 5rem 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">SOCIAL ORBIT</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="about.html" class="active">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <section class="about-hero">
+        <div class="hero-content">
+            <h1>Redefining Excellence in Digital Influence</h1>
+            <div class="gold-divider"></div>
+            <p>At SOCIAL ORBIT, we curate bespoke social media experiences for elite brands seeking celestial growth in the digital stratosphere.</p>
+        </div>
+    </section>
+
+    <section class="mission-section">
+        <div class="mission-container">
+            <div class="mission-content">
+                <h2>Our Celestial Mission</h2>
+                <div class="gold-divider"></div>
+                <p>Founded in 2018, SOCIAL ORBIT emerged from a singular vision: to elevate premium brands beyond terrestrial marketing constraints into the rarefied atmosphere of digital aristocracy.</p>
+                <p>We reject the mundane, the templated, the ordinary. Our approach is tailored with the precision of Swiss watchmakers and the creativity of Parisian couturiers.</p>
+                <p>Each campaign we architect combines data alchemy with creative wizardry, delivering results that transcend conventional metrics and redefine industry standards.</p>
+            </div>
+            <div class="mission-image">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="SOCIAL ORBIT Strategy Session">
+            </div>
+        </div>
+    </section>
+
+    <section class="values-section">
+        <div class="section-header">
+            <h2>Core Constellations</h2>
+            <div class="gold-divider" style="margin: 2rem auto;"></div>
+            <p>The guiding principles that illuminate our path to extraordinary results</p>
+        </div>
+        
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <h3>Exclusivity</h3>
+                <p>We intentionally limit our client roster to ensure each brand receives our undivided attention and the highest level of service.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-chart-network"></i>
+                </div>
+                <h3>Strategic Alchemy</h3>
+                <p>Transforming data points into golden opportunities through proprietary analysis frameworks developed over years of testing.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Discretion</h3>
+                <p>Your competitive strategies remain protected by our military-grade confidentiality protocols and NDAs.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3>Velocity</h3>
+                <p>We move at the speed of culture, deploying campaigns within hours of trend emergence while maintaining brand integrity.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-gem"></i>
+                </div>
+                <h3>Craftsmanship</h3>
+                <p>Every asset undergoes 27-point quality control before deployment, ensuring pixel-perfect presentation across all platforms.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-infinity"></i>
+                </div>
+                <h3>Perpetual Optimization</h3>
+                <p>Our systems never sleep, continuously refining campaigns through AI and human expertise working in concert.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="section-header">
+            <h2>Celestial Command</h2>
+            <div class="gold-divider" style="margin: 2rem auto;"></div>
+            <p>The visionary minds orchestrating your brand's ascent</p>
+        </div>
+        
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="Alexandra Sterling">
+                </div>
+                <h3>Alexandra Sterling</h3>
+                <p>Founder & CEO</p>
+                <p>Former Global Digital Director at LVMH</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="Marcus Chen">
+                </div>
+                <h3>Marcus Chen</h3>
+                <p>Chief Strategy Officer</p>
+                <p>Ex-Google Ads Product Lead</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="Sophie Laurent">
+                </div>
+                <h3>Sophie Laurent</h3>
+                <p>Creative Director</p>
+                <p>Former Art Director at Vogue Paris</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="Dominic Reyes">
+                </div>
+                <h3>Dominic Reyes</h3>
+                <p>Head of Growth</p>
+                <p>Scaled 7 brands to 8-figures</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Animate value cards on scroll
+        const animateCards = () => {
+            const cards = document.querySelectorAll('.value-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 150 * index);
+            });
+        };
+
+        // Initialize animation when section is in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCards();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        observer.observe(document.querySelector('.values-section'));
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            navbar.style.background = window.scrollY > 50 ? 'rgba(5,5,5,0.98)' : 'rgba(5,5,5,0.98)';
+            navbar.style.padding = window.scrollY > 50 ? '1rem 5%' : '1.5rem 5%';
+        });
+    </script>
+</body>
+</html>
