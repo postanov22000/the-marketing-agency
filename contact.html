@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | SOCIAL ORBIT - Elite Social Media Marketing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FFD700;
+            --secondary: #7858FF;
+            --dark: #0A0A0A;
+            --darker: #050505;
+            --accent: #C0A46E;
+            --text-light: rgba(255,255,255,0.85);
+            --text-lighter: rgba(255,255,255,0.95);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--darker);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        /* Navbar (consistent with other pages) */
+        .navbar {
+            position: fixed;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(5, 5, 5, 0.98);
+            backdrop-filter: blur(15px) saturate(180%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            background: linear-gradient(45deg, var(--primary), #FFF3B0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            padding-left: 2.5rem;
+        }
+
+        .logo::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.8rem;
+            color: var(--primary);
+            animation: starPulse 2s infinite;
+        }
+
+        @keyframes starPulse {
+            0%, 100% { opacity: 1; transform: scale(1) translateY(-50%); }
+            50% { opacity: 0.4; transform: scale(1.2) translateY(-50%); }
+        }
+
+        .nav-links a {
+            margin-left: 3rem;
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary), transparent);
+            transition: width 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Contact Hero */
+        .contact-hero {
+            height: 60vh;
+            padding: 0 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(25deg, var(--darker) 30%, #111 100%);
+        }
+
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            width: 150vw;
+            height: 150vh;
+            background: radial-gradient(circle, rgba(255,215,0,0.05) 0%, transparent 60%);
+            animation: galaxySpin 120s linear infinite;
+            opacity: 0.2;
+        }
+
+        @keyframes galaxySpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            color: var(--text-lighter);
+            text-shadow: 0 0 30px rgba(255,215,0,0.1);
+        }
+
+        .gold-divider {
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+            margin: 2rem auto;
+            opacity: 0.7;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        /* Contact Form Section */
+        .contact-section {
+            padding: 6rem 10%;
+            position: relative;
+            background: var(--dark);
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%23FFD700" stroke-width="0.5" opacity="0.05"/></svg>');
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            padding: 2rem 0;
+        }
+
+        .contact-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--text-lighter);
+            margin-bottom: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-top: 0.3rem;
+        }
+
+        .info-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-lighter);
+        }
+
+        .info-content p, .info-content a {
+            color: var(--text-light);
+            opacity: 0.9;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .info-content a:hover {
+            color: var(--primary);
+        }
+
+        .contact-form {
+            background: linear-gradient(145deg, rgba(15,15,15,0.8), rgba(10,10,10,0.9));
+            padding: 3rem;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(255,215,0,0.15);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 1.2rem;
+            background: rgba(20,20,20,0.7);
+            border: 1px solid rgba(255,215,0,0.2);
+            border-radius: 0.5rem;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(255,215,0,0.2);
+            background: rgba(30,30,30,0.7);
+        }
+
+        .submit-btn {
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, var(--primary) 0%, #C0A46E 100%);
+            color: var(--dark);
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(255,215,0,0.2);
+            width: 100%;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255,255,255,0.3),
+                transparent
+            );
+            transition: all 0.8s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255,215,0,0.3);
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Success Message */
+        .success-message {
+            text-align: center;
+            padding: 4rem;
+            display: none;
+        }
+
+        .success-message i {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            animation: bounce 1s;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
+
+        .success-message h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-lighter);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .contact-info {
+                text-align: center;
+            }
+            
+            .info-item {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-hero {
+                height: auto;
+                padding: 10rem 5% 5rem;
+            }
+            
+            .contact-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .contact-section {
+                padding: 5rem 5%;
+            }
+            
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">SOCIAL ORBIT</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+    </nav>
+
+    <section class="contact-hero">
+        <div class="hero-content">
+            <h1>Begin Your Celestial Ascent</h1>
+            <div class="gold-divider"></div>
+            <p>Our concierge team is standing by to elevate your brand beyond conventional digital boundaries.</p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Connect With Our Orbit</h2>
+                <div class="gold-divider" style="margin: 2rem 0;"></div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Global Headquarters</h3>
+                        <p>750 Lexington Ave, 17th Floor<br>New York, NY 10022</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Concierge Inquiries</h3>
+                        <a href="mailto:concierge@socialorbit.com">concierge@socialorbit.com</a>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Priority Access</h3>
+                        <a href="tel:+18885551234">+1 (888) 555-1234</a>
+                        <p>Available 9AM-9PM EST</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Executive Liaison</h3>
+                        <p>For C-level inquiries only</p>
+                        <a href="mailto:executive@socialorbit.com">executive@socialorbit.com</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" placeholder="First & Last Name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-input" placeholder="contact@yourcompany.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Company Name</label>
+                        <input type="text" class="form-input" placeholder="Your Brand or Organization">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Monthly Marketing Budget</label>
+                        <select class="form-input">
+                            <option value="">Select Budget Range</option>
+                            <option value="10-25">$10k - $25k</option>
+                            <option value="25-50">$25k - $50k</option>
+                            <option value="50-100">$50k - $100k</option>
+                            <option value="100+">$100k+</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">How Can We Serve You?</label>
+                        <textarea class="form-textarea" placeholder="Describe your goals, challenges, and timeline"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <span>Request Concierge Consultation</span>
+                    </button>
+                </form>
+                
+                <div class="success-message">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Transmission Received</h3>
+                    <p>Your inquiry has been routed to our elite concierge team.</p>
+                    <p>Expect a response within 24 hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Form Submission Handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate form
+            const formData = new FormData(this);
+            let isValid = true;
+            
+            this.querySelectorAll('[required]').forEach(field => {
+                if (!field.value) isValid = false;
+            });
+            
+            if (!isValid) {
+                alert('Please complete all required fields');
+                return;
+            }
+            
+            // Show success state
+            this.style.display = 'none';
+            document.querySelector('.success-message').style.display = 'block';
+            
+            // Here you would typically send the form data to your server
+            // fetch('/api/contact', { method: 'POST', body: formData })
+        });
+
+        // Animate form elements on scroll
+        const animateForm = () => {
+            const formGroups = document.querySelectorAll('.form-group');
+            formGroups.forEach((group, index) => {
+                setTimeout(() => {
+                    group.style.opacity = '1';
+                    group.style.transform = 'translateY(0)';
+                }, 150 * index);
+            });
+        };
+
+        // Initialize animation when form is in view
+        const formObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateForm();
+                    formObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        formObserver.observe(document.querySelector('.contact-form'));
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            navbar.style.background = window.scrollY > 50 ? 'rgba(5,5,5,0.98)' : 'rgba(5,5,5,0.98)';
+            navbar.style.padding = window.scrollY > 50 ? '1rem 5%' : '1.5rem 5%';
+        });
+    </script>
+</body>
+</html>
